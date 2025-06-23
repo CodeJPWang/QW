@@ -25,8 +25,9 @@ function initLang() {
     }
   });
 
-  // 让异步 include 的 header/footer 也受控
-  document.addEventListener('partialsReady', () => applyLang(currentLang()));
+  document.addEventListener('partialsReady', () => {
+    applyLang(currentLang());
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initLang);
