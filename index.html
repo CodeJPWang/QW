@@ -6,64 +6,15 @@
   <title>QuantWings | Study-Abroad. Simplified.</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
   <style>
-  html:not([data-lang-set]) [data-lang="en"] {
-    display: block;
-  }</style>
-
-
-
+    html:not([data-lang-set]) [data-lang="en"] {
+      display: block;
+    }
+  </style>
 </head>
 
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
-
-<!-- 主导航栏 -->
-<header class="bg-gradient-to-r from-slate-700 to-slate-800 text-white shadow sticky top-0 z-40">
-  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/images/Wordpress.png" alt="QuantWings Logo" class="h-10 w-auto">
-      <span class="text-2xl font-bold">QuantWings</span>
-    </a>
-
-    <!-- 横向主导航 -->
-    <nav class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
-      <!-- EN -->
-      <a href="index.html" data-lang="en" class="hover:text-blue-300">Home</a>
-      <a href="about.html" data-lang="en" class="hover:text-blue-300">About</a>
-      <a href="company.html" data-lang="en" class="hover:text-blue-300">Services</a>
-      <a href="team.html" data-lang="en" class="hover:text-blue-300">Team</a>
-      <a href="tours.html" data-lang="en" class="hover:text-blue-300">Tours</a>
-      <a href="partner.html" data-lang="en" class="hover:text-blue-300">Partners</a>
-      <a href="careers.html" data-lang="en" class="hover:text-blue-300">Careers</a>
-      <a href="contact.html" data-lang="en" class="hover:text-blue-300">Contact</a>
-
-      <!-- ZH -->
-      <a href="index.html" data-lang="zh" class="hover:text-blue-300">首页</a>
-      <a href="about.html" data-lang="zh" class="hover:text-blue-300">关于我们</a>
-      <a href="company.html" data-lang="zh" class="hover:text-blue-300">服务</a>
-      <a href="team.html" data-lang="zh" class="hover:text-blue-300">导师</a>
-      <a href="tours.html" data-lang="zh" class="hover:text-blue-300">游学</a>
-      <a href="partner.html" data-lang="zh" class="hover:text-blue-300">合作院校</a>
-      <a href="careers.html" data-lang="zh" class="hover:text-blue-300">招聘</a>
-      <a href="contact.html" data-lang="zh" class="hover:text-blue-300">联系</a>
-    </nav>
-  </div>
-</header>
-
-
-
-<script>
-  document.addEventListener('click', e => {
-    if (e.target.id === 'hamburger') {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    }
-  });
-</script>
-
-<!-- Global scripts -->
-<script src="assets/js/cursor-trail.js"></script>
-<script src="assets/js/lang-switch.js"></script>
-
+  <!-- Header placeholder -->
+  <div id="header-placeholder"></div>
 
   <!-- HERO -->
   <section id="hero" class="relative flex flex-col items-center justify-center text-center py-32 bg-gradient-to-br from-blue-600 to-teal-500 text-white overflow-hidden">
@@ -78,7 +29,6 @@
   </section>
 
   <main class="flex-grow space-y-24">
-
     <!-- ABOUT PREVIEW -->
     <section id="about" class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div class="space-y-6">
@@ -100,7 +50,7 @@
 
         <div class="grid gap-8 md:grid-cols-3">
           <article class="p-6 bg-slate-50 rounded-xl shadow flex flex-col items-center">
-            <span class="text-4xl mb-4">🧭</span>
+            <span class="text-4xl mb-4">🤝</span>
             <h3 class="font-semibold mb-2" data-lang="en">Course & Univ Matching</h3>
             <h3 class="font-semibold mb-2" data-lang="zh">专业与院校匹配</h3>
           </article>
@@ -132,39 +82,36 @@
     <a href="contact.html" class="inline-block bg-white text-purple-700 font-semibold px-10 py-4 rounded-full shadow hover:-translate-y-1 transition" data-lang="zh">联系我们</a>
   </section>
 
-  <!-- Injected Footer -->
+  <!-- Footer -->
   <footer class="bg-gray-900 text-gray-200 py-8 text-center text-sm">
-  <p data-lang="en">© <span id="year">2025</span> QuantWings. All rights reserved.</p>
-  <p data-lang="zh">© <span id="year">2025</span> QuantWings 版权所有。</p>
+    <p data-lang="en">© <span id="year">2025</span> QuantWings. All rights reserved.</p>
+    <p data-lang="zh">© <span id="year">2025</span> QuantWings 版权所有。</p>
+    <p class="opacity-80 mt-2">
+      📧 <a href="mailto:info@quantwings.co.uk" class="underline">info@quantwings.co.uk</a>
+    </p>
+    <div class="mt-4 font-semibold">
+      <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
+      <span>|</span>
+      <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
+    </div>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  </footer>
 
-  <p class="opacity-80 mt-2">
-    📧 <a href="mailto:info@quantwings.co.uk" class="underline">info@quantwings.co.uk</a>
-  </p>
-
-  <!-- 统一语言开关 -->
-  <div class="mt-4 font-semibold">
-    <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
-    <span>|</span>
-    <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
-  </div>
-
+  <!-- Scripts -->
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    fetch('header.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('header-placeholder').innerHTML = html;
+        document.dispatchEvent(new Event('partialsReady'));
+      });
   </script>
-</footer>
-
-
-  <!-- Global Scripts -->
-  <script src="assets/js/autoload.js"></script>
   <script src="assets/js/lang-switch.js"></script>
   <script src="assets/js/cursor-trail.js"></script>
-
-
-<script src="assets/js/autoload.js"></script>
-<script src="assets/js/lang-switch.js"></script>
-<script src="assets/js/cursor-trail.js"></script>
-<script>
-  if (typeof initLang === 'function') initLang();
-</script>
+  <script>
+    if (typeof initLang === 'function') initLang();
+  </script>
 </body>
 </html>
