@@ -5,8 +5,13 @@ function currentLang() {
 function applyLang(lang) {
   localStorage.setItem('lang', lang);
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.hidden = el.dataset.lang !== lang;
+    if (el.dataset.lang === lang) {
+      el.style.display = '';
+    } else {
+      el.style.display = 'none';
+    }
   });
+}
   
   // 可选：切换语言按钮样式高亮（如果你愿意）
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
