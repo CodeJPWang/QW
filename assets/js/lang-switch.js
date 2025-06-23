@@ -1,3 +1,4 @@
+
 function currentLang() {
   return localStorage.getItem('lang') || 'en';
 }
@@ -6,8 +7,7 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.setProperty('display', (el.dataset.lang === lang ? '' : 'none'), 'important');
-
+    el.style.setProperty('display', el.dataset.lang === lang ? '' : 'none', 'important');
   });
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
@@ -26,9 +26,7 @@ function initLang() {
     }
   });
 
-  document.addEventListener('partialsReady', () => {
-    applyLang(currentLang());
-  });
+  document.addEventListener('partialsReady', () => applyLang(currentLang()));
 }
 
 document.addEventListener('DOMContentLoaded', initLang);

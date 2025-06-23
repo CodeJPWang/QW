@@ -12,7 +12,101 @@
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
 
   <!-- Injected Header -->
-  <div data-include="partials/header.html"></div>
+  <header class="sticky top-0 z-50 bg-white/70 backdrop-blur shadow-sm">
+  <div class="max-w-7xl mx-auto flex items-center px-4 py-3">
+
+    <!-- Logo -->
+    <a href="index.html" aria-label="QuantWings – Home"
+       class="flex items-center gap-2 text-xl font-bold text-blue-700">
+      <img src="assets/images/Wordpress.png"
+           alt="QuantWings Logo"
+           style="width: 100px; height: auto;" />
+
+    </a>
+
+    <!-- 防止加载时双语闪烁 -->
+    <style>[data-lang]{display:none}</style>
+
+    <!-- 桌面导航 -->
+    <nav class="ml-auto space-x-8 hidden md:block">
+      <!-- EN -->
+      <a href="index.html"   class="hover:text-blue-700" data-lang="en">Home</a>
+      <a href="about.html"   class="hover:text-blue-700" data-lang="en">About</a>
+      <a href="company.html" class="hover:text-blue-700" data-lang="en">Services</a>
+      <a href="team.html"    class="hover:text-blue-700" data-lang="en">Team</a>
+      <a href="tours.html"   class="hover:text-blue-700" data-lang="en">Tours</a>
+      <a href="partner.html" class="hover:text-blue-700" data-lang="en">Partners</a>
+      <a href="careers.html" class="hover:text-blue-700" data-lang="en">Careers</a>
+      <a href="contact.html" class="hover:text-blue-700" data-lang="en">Contact</a>
+
+      <!-- ZH -->
+      <a href="index.html"   class="hover:text-blue-700" data-lang="zh">首页</a>
+      <a href="about.html"   class="hover:text-blue-700" data-lang="zh">关于我们</a>
+      <a href="company.html" class="hover:text-blue-700" data-lang="zh">服务</a>
+      <a href="team.html"    class="hover:text-blue-700" data-lang="zh">导师</a>
+      <a href="tours.html"   class="hover:text-blue-700" data-lang="zh">游学</a>
+      <a href="partner.html" class="hover:text-blue-700" data-lang="zh">合作院校</a>
+      <a href="careers.html" class="hover:text-blue-700" data-lang="zh">招聘</a>
+      <a href="contact.html" class="hover:text-blue-700" data-lang="zh">联系</a>
+    </nav>
+
+    <!-- Lang switch 桌面 -->
+    <div class="ml-4 hidden md:flex gap-2 text-sm font-semibold">
+      <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
+      <span>|</span>
+      <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
+    </div>
+
+    <!-- Lang switch 移动 + 汉堡 -->
+    <div class="flex gap-3 md:hidden items-center ml-auto">
+      <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
+      <span>|</span>
+      <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
+
+      <button id="hamburger" aria-label="Toggle navigation">
+        <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 移动菜单 -->
+  <nav id="mobile-menu" class="hidden bg-white/90 backdrop-blur md:hidden px-4 pb-4 space-y-2">
+    <!-- EN -->
+    <a href="index.html"   class="block" data-lang="en">Home</a>
+    <a href="about.html"   class="block" data-lang="en">About</a>
+    <a href="company.html" class="block" data-lang="en">Services</a>
+    <a href="team.html"    class="block" data-lang="en">Team</a>
+    <a href="tours.html"   class="block" data-lang="en">Tours</a>
+    <a href="partner.html" class="block" data-lang="en">Partners</a>
+    <a href="careers.html" class="block" data-lang="en">Careers</a>
+    <a href="contact.html" class="block" data-lang="en">Contact</a>
+    <!-- ZH -->
+    <a href="index.html"   class="block" data-lang="zh">首页</a>
+    <a href="about.html"   class="block" data-lang="zh">关于我们</a>
+    <a href="company.html" class="block" data-lang="zh">服务</a>
+    <a href="team.html"    class="block" data-lang="zh">导师</a>
+    <a href="tours.html"   class="block" data-lang="zh">游学</a>
+    <a href="partner.html" class="block" data-lang="zh">合作院校</a>
+    <a href="careers.html" class="block" data-lang="zh">招聘</a>
+    <a href="contact.html" class="block" data-lang="zh">联系</a>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('click', e => {
+    if (e.target.id === 'hamburger') {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+  });
+</script>
+
+<!-- Global scripts -->
+<script src="assets/js/cursor-trail.js"></script>
+<script src="assets/js/lang-switch.js"></script>
+
 
   <!-- HERO -->
   <section id="hero" class="relative flex flex-col items-center justify-center text-center py-32 bg-gradient-to-br from-blue-600 to-teal-500 text-white overflow-hidden">
@@ -82,12 +176,35 @@
   </section>
 
   <!-- Injected Footer -->
-  <div data-include="partials/footer.html"></div>
+  <footer class="bg-gray-900 text-gray-200 py-8 text-center text-sm">
+  <p data-lang="en">© <span id="year">2025</span> QuantWings. All rights reserved.</p>
+  <p data-lang="zh">© <span id="year">2025</span> QuantWings 版权所有。</p>
+
+  <p class="opacity-80 mt-2">
+    📧 <a href="mailto:info@quantwings.co.uk" class="underline">info@quantwings.co.uk</a>
+  </p>
+
+  <!-- 统一语言开关 -->
+  <div class="mt-4 font-semibold">
+    <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
+    <span>|</span>
+    <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</footer>
+
 
   <!-- Global Scripts -->
   <script src="assets/js/autoload.js"></script>
   <script src="assets/js/lang-switch.js"></script>
   <script src="assets/js/cursor-trail.js"></script>
 
+
+<script src="assets/js/autoload.js"></script>
+<script src="assets/js/lang-switch.js"></script>
+<script src="assets/js/cursor-trail.js"></script>
 </body>
 </html>
