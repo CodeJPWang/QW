@@ -38,3 +38,5 @@ function initLang() {
 }
 
 document.addEventListener('DOMContentLoaded', initLang);
+console.log('🌐 initLang 执行了');
+
