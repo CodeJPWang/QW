@@ -1,76 +1,45 @@
-<header class="bg-white shadow-sm sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
+<!-- 顶部语言切换栏 -->
+<div class="bg-slate-900 text-white text-sm px-6 py-1 flex justify-end items-center">
+  <div class="font-semibold">
+    <a href="#" data-switch-lang="en" class="hover:text-blue-300">EN</a>
+    <span class="mx-1">|</span>
+    <a href="#" data-switch-lang="zh" class="hover:text-blue-300">中文</a>
+  </div>
+</div>
 
-    <!-- Logo -->
-    <a href="index.html" class="flex items-center gap-2">
-      <img src="assets/images/Wordpress.png" alt="QuantWings Logo" class="w-12 h-auto">
-      <span class="text-xl font-bold text-blue-700">QuantWings</span>
+<!-- 主导航栏 -->
+<header class="bg-gradient-to-r from-slate-700 to-slate-800 text-white shadow sticky top-0 z-40">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-3">
+
+    <!-- 左侧 Logo + Brand -->
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/Wordpress.png" alt="QuantWings Logo" class="h-10 w-auto">
+      <span class="text-2xl font-bold">QuantWings</span>
     </a>
 
-    <!-- Right side -->
-    <div class="flex items-center space-x-8">
+    <!-- 横向主导航（所有链接平铺） -->
+    <nav class="flex flex-wrap justify-center gap-6 text-sm font-semibold">
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-        <!-- EN -->
-        <a href="index.html" data-lang="en" class="hover:text-blue-600">Home</a>
-        <a href="about.html" data-lang="en" class="hover:text-blue-600">About</a>
-        <a href="company.html" data-lang="en" class="hover:text-blue-600">Services</a>
-        <a href="team.html" data-lang="en" class="hover:text-blue-600">Team</a>
-        <a href="tours.html" data-lang="en" class="hover:text-blue-600">Tours</a>
-        <a href="partner.html" data-lang="en" class="hover:text-blue-600">Partners</a>
-        <a href="careers.html" data-lang="en" class="hover:text-blue-600">Careers</a>
-        <a href="contact.html" data-lang="en" class="hover:text-blue-600">Contact</a>
+      <!-- EN -->
+      <a href="index.html" data-lang="en" class="hover:text-blue-300">Home</a>
+      <a href="about.html" data-lang="en" class="hover:text-blue-300">About</a>
+      <a href="company.html" data-lang="en" class="hover:text-blue-300">Services</a>
+      <a href="team.html" data-lang="en" class="hover:text-blue-300">Team</a>
+      <a href="tours.html" data-lang="en" class="hover:text-blue-300">Tours</a>
+      <a href="partner.html" data-lang="en" class="hover:text-blue-300">Partners</a>
+      <a href="careers.html" data-lang="en" class="hover:text-blue-300">Careers</a>
+      <a href="contact.html" data-lang="en" class="hover:text-blue-300">Contact</a>
 
-        <!-- ZH -->
-        <a href="index.html" data-lang="zh" class="hover:text-blue-600">首页</a>
-        <a href="about.html" data-lang="zh" class="hover:text-blue-600">关于我们</a>
-        <a href="company.html" data-lang="zh" class="hover:text-blue-600">服务</a>
-        <a href="team.html" data-lang="zh" class="hover:text-blue-600">导师</a>
-        <a href="tours.html" data-lang="zh" class="hover:text-blue-600">游学</a>
-        <a href="partner.html" data-lang="zh" class="hover:text-blue-600">合作院校</a>
-        <a href="careers.html" data-lang="zh" class="hover:text-blue-600">招聘</a>
-        <a href="contact.html" data-lang="zh" class="hover:text-blue-600">联系</a>
-      </nav>
+      <!-- ZH -->
+      <a href="index.html" data-lang="zh" class="hover:text-blue-300">首页</a>
+      <a href="about.html" data-lang="zh" class="hover:text-blue-300">关于我们</a>
+      <a href="company.html" data-lang="zh" class="hover:text-blue-300">服务</a>
+      <a href="team.html" data-lang="zh" class="hover:text-blue-300">导师</a>
+      <a href="tours.html" data-lang="zh" class="hover:text-blue-300">游学</a>
+      <a href="partner.html" data-lang="zh" class="hover:text-blue-300">合作院校</a>
+      <a href="careers.html" data-lang="zh" class="hover:text-blue-300">招聘</a>
+      <a href="contact.html" data-lang="zh" class="hover:text-blue-300">联系</a>
 
-      <!-- Language switcher -->
-      <div class="text-sm font-semibold">
-        <a href="#" data-switch-lang="en" class="hover:text-blue-600">EN</a>
-        <span class="mx-1">|</span>
-        <a href="#" data-switch-lang="zh" class="hover:text-blue-600">中文</a>
-      </div>
-        <!-- 
-        <div class="hidden md:block text-sm text-gray-500">
-          <span class="mr-2">📞 400-123-4567</span>
-          <span class="mr-2">微信客服: 123456789</span>
-        </div>
-        -->
-      
-    </div>
-
-    <!-- Mobile hamburger -->
-    <button id="hamburger" class="md:hidden">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+    </nav>
   </div>
-
-  <!-- Mobile menu -->
-  <nav id="mobile-menu" class="hidden md:hidden bg-white px-4 py-4 space-y-2 text-sm">
-    <!-- Repeat nav links -->
-    <a href="index.html" class="block" data-lang="en">Home</a>
-    <a href="about.html" class="block" data-lang="en">About</a>
-    <a href="company.html" class="block" data-lang="en">Services</a>
-    <!-- ... etc ... -->
-    <a href="index.html" class="block" data-lang="zh">首页</a>
-    <a href="about.html" class="block" data-lang="zh">关于我们</a>
-    <!-- ... etc ... -->
-  </nav>
 </header>
-
-<script>
-  document.getElementById('hamburger')?.addEventListener('click', () => {
-    document.getElementById('mobile-menu')?.classList.toggle('hidden');
-  });
-</script>
