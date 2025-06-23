@@ -7,7 +7,9 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
   <!-- 注释掉这一行： -->
 <!--   <style>[data-lang]:not([style]) {display: none;}</style>  -->
-  <style>[data-lang]:not([style]) {display: none;}</style>
+    <style>
+    html:not([data-lang-set]) [data-lang="en"] {
+      display: block !important;} </style>
 
 </head>
 
