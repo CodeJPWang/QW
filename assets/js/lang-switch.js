@@ -6,7 +6,8 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.dataset.lang === lang ? '' : 'none';
+    el.style.setProperty('display', (el.dataset.lang === lang ? '' : 'none'), 'important');
+
   });
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
