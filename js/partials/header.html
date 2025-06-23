@@ -1,27 +1,66 @@
 <header class="sticky top-0 z-50 bg-white/70 backdrop-blur shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center px-4 py-3">
     <a href="/index.html" class="text-xl font-bold text-blue-700">QuantWings</a>
+
+    <!-- 桌面导航 -->
     <nav class="ml-auto space-x-8 hidden md:block">
-      <a href="/index.html"      class="hover:text-blue-700">Home</a>
-      <a href="/about.html"      class="hover:text-blue-700">About</a>
-      <a href="/company.html"    class="hover:text-blue-700">Services</a>
-      <a href="/contact.html"    class="hover:text-blue-700">Contact</a>
+      <a href="/index.html"      class="hover:text-blue-700" data-lang="en">Home</a>
+      <a href="/index.html"      class="hover:text-blue-700" data-lang="zh">首页</a>
+
+      <a href="/about.html"      class="hover:text-blue-700" data-lang="en">About</a>
+      <a href="/about.html"      class="hover:text-blue-700" data-lang="zh">关于我们</a>
+
+      <a href="/company.html"    class="hover:text-blue-700" data-lang="en">Services</a>
+      <a href="/company.html"    class="hover:text-blue-700" data-lang="zh">服务</a>
+
+      <a href="/contact.html"    class="hover:text-blue-700" data-lang="en">Contact</a>
+      <a href="/contact.html"    class="hover:text-blue-700" data-lang="zh">联系</a>
     </nav>
+
+    <!-- 语言切换 -->
+    <div class="ml-4 hidden md:flex gap-2 text-sm font-semibold">
+      <a href="#" data-switch-lang="en">EN</a>
+      <span>|</span>
+      <a href="#" data-switch-lang="zh">中文</a>
+    </div>
+
+    <!-- 汉堡按钮（移动端） -->
     <button id="hamburger" class="md:hidden ml-auto">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
+
+  <!-- 移动端折叠菜单 -->
   <nav id="mobile-menu" class="hidden bg-white/90 backdrop-blur md:hidden px-4 pb-4 space-y-2">
-    <a href="/index.html"   class="block">Home</a>
-    <a href="/about.html"   class="block">About</a>
-    <a href="/company.html" class="block">Services</a>
-    <a href="/contact.html" class="block">Contact</a>
+    <a href="/index.html"   class="block" data-lang="en">Home</a>
+    <a href="/index.html"   class="block" data-lang="zh">首页</a>
+
+    <a href="/about.html"   class="block" data-lang="en">About</a>
+    <a href="/about.html"   class="block" data-lang="zh">关于</a>
+
+    <a href="/company.html" class="block" data-lang="en">Services</a>
+    <a href="/company.html" class="block" data-lang="zh">服务</a>
+
+    <a href="/contact.html" class="block" data-lang="en">Contact</a>
+    <a href="/contact.html" class="block" data-lang="zh">联系</a>
+
+    <!-- 语言切换（移动端也放一份） -->
+    <div class="flex gap-2 pt-2 font-semibold">
+      <a href="#" data-switch-lang="en">EN</a> | <a href="#" data-switch-lang="zh">中文</a>
+    </div>
   </nav>
 </header>
+
 <script>
-document.addEventListener('click',e=>{
-  if(e.target.id==='hamburger') document.getElementById('mobile-menu').classList.toggle('hidden');
-});
+  document.addEventListener('click', e => {
+    if (e.target.id === 'hamburger') {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    }
+  });
 </script>
+
+<!-- 全局脚本 -->
+<script src="/assets/js/cursor-trail.js" defer></script>
+<script src="/assets/js/lang-switch.js" defer></script>

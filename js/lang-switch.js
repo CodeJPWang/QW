@@ -1,5 +1,30 @@
-/* language switcher */
-function currentLang(){const m=location.search.match(/lang=(en|zh)/);return m?m[1]:'en';}
-function applyLang(l){const u=new URL(location.href);u.searchParams.set('lang',l);history.replaceState({},'',u);document.documentElement.lang=l;document.querySelectorAll('[data-lang]').forEach(el=>{el.hidden=el.dataset.lang!==l});}
-function initLang(){applyLang(currentLang());document.body.addEventListener('click',e=>{const t=e.target; if(t.dataset.switchLang){e.preventDefault();applyLang(t.dataset.switchLang);}});}
-document.addEventListener('DOMContentLoaded',initLang);
+/* lang-switch.js  ⬇️ 彻底替换原文件 */
+function currentLang () {
+  return localStorage.getItem('lang') || 'en';
+}
+
+function applyLang (l) {
+  localStorage.setItem('lang', l);
+  document.querySelectorAll('[data-lang]').forEach(el => {
+    el.hidden = el.dataset.lang !== l;
+  });
+}
+
+function initLang () {
+  // 初次应用
+  applyLang(currentLang());
+
+  // 监听点击带 data-switch-lang 的链接 / 按钮
+  document.addEventListener('click', e => {
+    const t = e.target.closest('[data-switch-lang]');
+    if (t) {
+      e.preventDefault();
+      applyLang(t.dataset.switchLang);
+    }
+  });
+
+  // header/footer 动态插入完成后再刷一次
+  document.addEventListener('partialsReady', () => applyLang(currentLang()));
+}
+
+document.addEventListener('DOMContentLoaded', initLang);

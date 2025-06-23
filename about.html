@@ -1,15 +1,60 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>QuantWings</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>About Us | QuantWings</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
-<div data-include="/partials/header.html"></div>
-<!-- placeholder, identical content can be added later -->
-<div data-include="/partials/footer.html"></div>
-<script src="/autoload.js"></script>
+
+  <!-- Global header injected via autoload.js -->
+  <div data-include="/partials/header.html"></div>
+
+  <!-- HERO =================================================== -->
+  <section id="about-hero" class="py-24 bg-gradient-to-br from-blue-700 to-teal-600 text-white text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4" data-lang="en">Ready to Fly? QuantWings Can Help!</h1>
+    <h1 class="text-4xl md:text-5xl font-extrabold mb-4" data-lang="zh">准备起飞？QuantWings 可以帮你！</h1>
+  </section>
+
+  <main class="flex-grow">
+    <section class="max-w-4xl mx-auto px-6 py-16 space-y-6 text-lg leading-relaxed">
+
+      <p data-lang="en">Hey there, future global scholars! 👋 Welcome to QuantWings, your friendly guide to soaring into amazing universities around the world!</p>
+      <p data-lang="zh">嗨，未来的全球学者们！👋 欢迎来到 QuantWings——带你飞向世界顶尖大学的贴心指南！</p>
+
+      <p data-lang="en">We know that figuring out university applications, especially when you want to study in places like the UK, Europe, Australia, Hong Kong, or Singapore, can feel a bit like trying to solve a really tricky puzzle. And guess what? We love puzzles!</p>
+      <p data-lang="zh">我们知道，申请大学，尤其是想去英国、欧洲、澳大利亚、香港或新加坡留学时，常常像在解一道超难的谜题。猜猜怎么着？我们就爱解谜！</p>
+
+      <p data-lang="en">We're super excited to help you on your journey, especially because we know the past few years have been a bit bumpy for everyone. We understand that bouncing back from everything that's happened can be tough, and we're here to make things easier and more fun!</p>
+      <p data-lang="zh">过去几年大家都经历了不少波折，我们也深知重整旗鼓并不容易。所以我们来啦，要让申请之旅更轻松、更有趣！</p>
+
+      <p data-lang="en">Imagine having a team of friends who've already been through it all, who know all the tips and tricks to get into top universities. That's us! We're a young and energetic team, and guess what? We've all studied abroad too! So we totally get what you're going through.</p>
+      <p data-lang="zh">想象一下，你有一群已经走过这条路、掌握所有诀窍的朋友一路同行——那就是我们！我们年轻、有活力，而且都曾留学海外，所以完全懂你的感受。</p>
+
+      <p data-lang="en">We've got super cool connections with admissions officers at awesome universities in the UK, which means we get insider info to help you create the best application ever. Plus, our team is made up of graduates from top universities in the UK, the US, Canada, Spain, Germany, Singapore, Hong Kong, Malaysia, and Australia! We've worked in big companies and know what it takes to succeed, and we're ready to share all our knowledge with you.</p>
+      <p data-lang="zh">我们与英国多所名校招生官保持紧密联系，能获取第一手内幕信息，帮你打造最强申请。更棒的是，我们的团队由来自英国、美国、加拿大、西班牙、德国、新加坡、香港、马来西亚和澳大利亚顶尖大学的毕业生组成！我们也在世界 500 强企业工作过，深知成功所需，现在把经验全部分享给你。</p>
+
+      <p data-lang="en">We're not just about filling out forms, though. We want to get to know you! We'll look at your interests, your grades, and your dreams, and help you find the perfect university and career path for you. We even have a special team of writers who graduated from top UK universities, so your application essays will sound amazing and authentic!</p>
+      <p data-lang="zh">我们不仅仅是填表机器，我们更想了解真正的你！我们会结合你的兴趣、成绩和梦想，帮你锁定最合适的大学和职业路径。还有一支由英国名校毕业生组成的文书团队，为你的申请 Essay 注入真实又亮眼的灵魂！</p>
+
+      <p data-lang="en">At QuantWings, we're all about giving you the best advice, the most helpful support, and a super friendly experience. We want to empower you to reach for your dreams and get that dream university offer! So, let's work together and make your university dreams take flight! 🚀</p>
+      <p data-lang="zh">在 QuantWings，我们致力于提供最前瞻的建议、最贴心的支持、最友好的体验。我们要赋能你追逐梦想，拿下理想大学的 Offer！让我们一起，让你的留学梦想起飞！🚀</p>
+
+    </section>
+
+    <!-- CTA ================================================= -->
+    <section class="py-16 bg-blue-600 text-white text-center">
+      <h2 class="text-3xl font-bold mb-4" data-lang="en">Unlock Your Future: Study Abroad with Us!</h2>
+      <h2 class="text-3xl font-bold mb-4" data-lang="zh">解锁未来，与我们一起留学！</h2>
+      <a href="/contact.html" class="inline-block bg-white text-blue-700 font-semibold px-8 py-3 rounded-full shadow hover:-translate-y-1 transition" data-lang="en">Contact&nbsp;Us</a>
+      <a href="/contact.html" class="inline-block bg-white text-blue-700 font-semibold px-8 py-3 rounded-full shadow hover:-translate-y-1 transition" data-lang="zh">联系我们</a>
+    </section>
+  </main>
+
+  <!-- Global footer injected via autoload.js -->
+  <div data-include="/partials/footer.html"></div>
+  <script src="/autoload.js"></script>
 </body>
 </html>
+

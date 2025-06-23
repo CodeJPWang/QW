@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh" data-lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <title>QuantWings · 样板示例 / Template Example</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    /* 粒子 canvas 在 Hero 背景里全覆盖 */
+    #particles { position: absolute; top:0; left:0; width:100%; height:300px; z-index:0; }
+    .hero-content { position: relative; z-index:1; }
+  </style>
+</head>
+<body class="bg-slate-900 text-gray-200 font-sans scroll-smooth">
+
+<!-- Hero 区域，带运动粒子 -->
+<section class="relative py-24 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
+  <canvas id="particles"></canvas>
+  <div class="hero-content max-w-3xl mx-auto px-4 text-center">
+    <h1 class="text-4xl font-bold mb-4">Ready to Fly? / 准备起飞？</h1>
+    <p class="opacity-90 mb-8">
+      We craft your global journey.<br/>
+      我们帮你打造全球学习之旅。
+    </p>
+    <a href="#media" class="inline-block bg-white text-blue-700 font-semibold px-6 py-3 rounded-full shadow hover:-translate-y-1 transition">
+      Explore Media / 探索内容
+    </a>
+  </div>
+</section>
+
+<!-- 媒体演示区 -->
+<section id="media" class="max-w-4xl mx-auto px-4 py-16 space-y-12">
+  <h2 class="text-3xl font-bold text-blue-400 text-center">Media Showcase / 媒体展示</h2>
+
+  <!-- 图片 -->
+  <div>
+    <h3 class="text-2xl mb-3">Image / 图片</h3>
+    <img src="placeholder.jpg" alt="Sample Image" class="rounded-lg shadow mx-auto">
+    <p class="text-center mt-2">示例图片，占位用。</p>
+  </div>
+
+  <!-- 视频 -->
+  <div>
+    <h3 class="text-2xl mb-3">Video / 视频</h3>
+    <video controls class="w-full rounded-lg shadow">
+      <source src="placeholder.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <p class="text-center mt-2">示例视频，占位用。</p>
+  </div>
+
+  <!-- 音频 -->
+  <div>
+    <h3 class="text-2xl mb-3">Audio / 音频</h3>
+    <audio controls class="w-full">
+      <source src="placeholder.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+    <p class="text-center mt-2">示例音频，占位用。</p>
+  </div>
+
+  <!-- 文档下载 -->
+  <div class="text-center">
+    <h3 class="text-2xl mb-3">Document / 文档下载</h3>
+    <a href="sample.pdf" download class="inline-block bg-blue-500 text-white px-5 py-3 rounded-full hover:bg-blue-600 transition">
+      Download PDF / 下载PDF
+    </a>
+  </div>
+</section>
+
+<!-- 页脚 -->
+<footer class="bg-gray-800 text-gray-400 py-8 text-center">
+  <p>© 2025 QuantWings – 样板示例，可根据需要替换资源。</p>
+</footer>
+
+<script>
+(() => {
+  const cvs = document.getElementById('particles'), ctx = cvs.getContext('2d');
+  let w, h, particles = [], COUNT = 80;
+  const mouse = { x: -999, y: -999 };
+
+  function resize() {
+    w = cvs.width = window.innerWidth;
+    h = cvs.height = 300;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  function rand(a,b){return Math.random()*(b-a)+a;}
+  function reset(p){
+    p.x = rand(0,w);
+    p.y = rand(0,h);
+    p.vx = rand(-0.5,0.5);
+    p.vy = rand(-0.5,0.5);
+    p.r = rand(1,3);
+  }
+  for(let i=0;i<COUNT;i++){
+    const p = {};
+    reset(p);
+    particles.push(p);
+  }
+
+  cvs.addEventListener('pointermove', e => {
+    const rect = cvs.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+  });
+  cvs.addEventListener('pointerleave', () => {
+    mouse.x = -999;
+    mouse.y = -999;
+  });
+
+  function step(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of particles){
+      p.x += p.vx;
+      p.y += p.vy;
+      if(p.x < -50 || p.x > w + 50 || p.y < -50 || p.y > h + 50){
+        reset(p);
+      }
+      const dx = p.x - mouse.x;
+      const dy = p.y - mouse.y;
+      const dist = Math.hypot(dx,dy);
+      if(dist < 120){
+        ctx.strokeStyle = `rgba(255,255,255,${1 - dist/120})`;
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        ctx.lineTo(mouse.x, mouse.y);
+        ctx.stroke();
+      }
+      ctx.fillStyle = '#fff';
+      ctx.globalAlpha = 0.8;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+    requestAnimationFrame(step);
+  }
+  step();
+})();
+</script>
