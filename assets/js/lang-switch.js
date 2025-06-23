@@ -6,13 +6,14 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.setProperty('display', el.dataset.lang === lang ? '' : 'none', 'important');
+    el.style.setProperty('display', el.dataset.lang === lang ? 'block' : 'none', 'important');
   });
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
   });
 }
+
 
 function initLang() {
   applyLang(currentLang());
