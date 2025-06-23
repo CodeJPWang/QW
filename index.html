@@ -1,17 +1,16 @@
+
 <!doctype html>
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>QuantWings | Study‑abroad. Simplified.</title>
+  <title>QuantWings | Study-Abroad. Simplified.</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@^3/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
-
-  <!-- Global header (logo + nav + lang switch) -->
   <div data-include="/partials/header.html"></div>
 
-  <!-- HERO =================================================== -->
+  <!-- HERO -->
   <section id="hero" class="relative flex flex-col items-center justify-center text-center py-32 bg-gradient-to-br from-blue-600 to-teal-500 text-white overflow-hidden">
     <h1 class="text-5xl md:text-6xl font-extrabold mb-4" data-lang="en">Ready to Fly?</h1>
     <h1 class="text-5xl md:text-6xl font-extrabold mb-4" data-lang="zh">准备起飞？</h1>
@@ -25,7 +24,7 @@
 
   <main class="flex-grow space-y-24">
 
-    <!-- ABOUT PREVIEW ======================================== -->
+    <!-- ABOUT PREVIEW -->
     <section id="about" class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
       <div class="space-y-6">
         <h2 class="text-3xl font-bold" data-lang="en">Who We Are</h2>
@@ -38,7 +37,7 @@
       <img src="/assets/img/about-preview.webp" alt="About QuantWings" class="rounded-xl shadow-lg hidden md:block">
     </section>
 
-    <!-- SERVICES SNAPSHOT ==================================== -->
+    <!-- SERVICES SNAPSHOT -->
     <section id="services" class="bg-white py-24">
       <div class="max-w-6xl mx-auto px-4 text-center">
         <h2 class="text-3xl font-bold mb-12" data-lang="en">Our Core Services</h2>
@@ -69,50 +68,9 @@
       </div>
     </section>
 
-    <!-- WHY US =============================================== -->
-    <section id="why" class="max-w-6xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12" data-lang="en">Why QuantWings?</h2>
-      <h2 class="text-3xl font-bold text-center mb-12" data-lang="zh">为什么选择我们？</h2>
-
-      <div class="grid gap-8 md:grid-cols-2">
-        <div class="flex items-start space-x-4">
-          <span class="text-3xl">🔑</span>
-          <p data-lang="en"><strong>Insider Access</strong> – direct links to UK admissions officers.</p>
-          <p data-lang="zh"><strong>院校资源</strong> – 直连英高校招办。</p>
-        </div>
-        <div class="flex items-start space-x-4">
-          <span class="text-3xl">🌍</span>
-          <p data-lang="en"><strong>Global Mentors</strong> – alumni from Oxbridge & Ivy.</p>
-          <p data-lang="zh"><strong>全球导师</strong> – 汇聚牛剑常青藤校友。</p>
-        </div>
-        <div class="flex items-start space-x-4">
-          <span class="text-3xl">🚀</span>
-          <p data-lang="en"><strong>Career Lens</strong> – Fortune 500 insight.</p>
-          <p data-lang="zh"><strong>职业视角</strong> – 世界 500 强经验。</p>
-        </div>
-        <div class="flex items-start space-x-4">
-          <span class="text-3xl">📝</span>
-          <p data-lang="en"><strong>Story‑First Essays</strong> – polished by Oxbridge grads.</p>
-          <p data-lang="zh"><strong>顶级文书</strong> – 牛剑毕业生打磨。</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- TESTIMONIALS ======================================== -->
-    <section id="testimonials" class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-12" data-lang="en">Student Voices</h2>
-      <h2 class="text-3xl font-bold text-center mb-12" data-lang="zh">学员心声</h2>
-
-      <blockquote class="relative p-6 bg-white rounded-xl shadow">
-        <p class="italic" data-lang="en">“QuantWings turned my chaotic ideas into a killer personal statement. Just got my Imperial offer!”</p>
-        <p class="italic" data-lang="zh">“QuantWings 帮我把思路梳理成高能个人陈述，已收获帝国理工 Offer！”</p>
-        <footer class="mt-4 text-right text-sm opacity-70">— Yuhan, MSc Computing</footer>
-      </blockquote>
-    </section>
-
   </main>
 
-  <!-- CALL‑TO‑ACTION ======================================== -->
+  <!-- CTA -->
   <section class="py-20 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-center">
     <h2 class="text-4xl font-bold mb-6" data-lang="en">Ready to start your journey?</h2>
     <h2 class="text-4xl font-bold mb-6" data-lang="zh">准备开启旅程了吗？</h2>
@@ -120,8 +78,7 @@
     <a href="/contact.html" class="inline-block bg-white text-purple-700 font-semibold px-10 py-4 rounded-full shadow hover:-translate-y-1 transition" data-lang="zh">联系我们</a>
   </section>
 
-  <!-- Global footer injected via autoload.js -->
   <div data-include="/partials/footer.html"></div>
-  <script src="/autoload.js"></script>
+  <script src="/assets/js/autoload.js"></script>
 </body>
 </html>
