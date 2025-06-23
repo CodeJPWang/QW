@@ -6,15 +6,17 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
   document.querySelectorAll('[data-lang]').forEach(el => {
-    el.style.display = el.dataset.lang === lang ? '' : 'none';
-    //el.style.setProperty('display', el.dataset.lang === lang ? 'block' : 'none', 'important');
+    if (el.dataset.lang === lang) {
+      el.style.removeProperty('display');
+    } else {
+      el.style.setProperty('display', 'none');
+    }
   });
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
   });
 }
-
 
 function initLang() {
   applyLang(currentLang());
