@@ -1,11 +1,19 @@
 
 <header class="sticky top-0 z-50 bg-white/70 backdrop-blur shadow-sm">
   <div class="max-w-7xl mx-auto flex items-center px-4 py-3">
+    <!-- Header 的logo 图片设置 -->
     <a href="/index.html" class="flex items-center gap-2 text-xl font-bold text-blue-700">
-  <img src="/assets/images/Wordpress.png" alt="QuantWings Logo" style="width: 80px; height: auto;">
-  QuantWings
-</a>
+    <img src="/assets/images/Wordpress.png" alt="QuantWings Logo" style="width: 100px; height: auto;">
+    <title>QuantWings</title>
+    </a>
 
+
+    <!-- 语言内容默认隐藏，避免加载时双语闪烁 -->
+    <style>
+      [data-lang] {
+        display: none;
+      }
+    </style>
 
     <!-- Desktop nav -->
     <nav class="ml-auto space-x-8 hidden md:block">
@@ -30,12 +38,19 @@
       <a href="/contact.html" class="hover:text-blue-700" data-lang="zh">联系</a>
     </nav>
 
-    <!-- Lang switch -->
+    <!-- Lang switch 桌面版-->
     <div class="ml-4 hidden md:flex gap-2 text-sm font-semibold">
-      <a href="#" data-switch-lang="en">EN</a>
+      <a href="#" data-switch-lang="en" data-lang-toggle>EN</a>
       <span>|</span>
-      <a href="#" data-switch-lang="zh">中文</a>
+      <a href="#" data-switch-lang="zh" data-lang-toggle>中文</a>
     </div>
+
+    <!-- Lang switch 移动版 -->
+    <div class="flex gap-2 pt-2 font-semibold">
+      <a href="#" data-switch-lang="en" data-lang-toggle>EN</a> |
+      <a href="#" data-switch-lang="zh" data-lang-toggle>中文</a>
+    </div>
+
 
     <!-- Hamburger -->
     <button id="hamburger" class="md:hidden ml-auto">
