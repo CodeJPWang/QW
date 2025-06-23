@@ -4,15 +4,20 @@ function currentLang() {
 
 function applyLang(lang) {
   localStorage.setItem('lang', lang);
-  document.documentElement.setAttribute('data-lang-set', 'true');
 
   document.querySelectorAll('[data-lang]').forEach(el => {
     if (el.dataset.lang === lang) {
-      el.style.removeProperty('display');
+      el.classList.remove('hidden');
     } else {
-      el.style.setProperty('display', 'none');
+      el.classList.add('hidden');
     }
   });
+
+  document.querySelectorAll('[data-switch-lang]').forEach(btn => {
+    btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
+  });
+}
+
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
