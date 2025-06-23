@@ -4,6 +4,7 @@ function currentLang() {
 
 function applyLang(lang) {
   localStorage.setItem('lang', lang);
+  document.documentElement.setAttribute('data-lang-set', 'true');
 
   document.querySelectorAll('[data-lang]').forEach(el => {
     if (el.dataset.lang === lang) {
