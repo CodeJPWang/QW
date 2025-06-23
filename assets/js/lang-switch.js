@@ -4,16 +4,11 @@ function currentLang() {
 
 function applyLang(lang) {
   localStorage.setItem('lang', lang);
+
   document.querySelectorAll('[data-lang]').forEach(el => {
-    if (el.dataset.lang === lang) {
-      el.style.display = '';
-    } else {
-      el.style.display = 'none';
-    }
+    el.style.display = el.dataset.lang === lang ? '' : 'none';
   });
-}
-  
-  // 可选：切换语言按钮样式高亮（如果你愿意）
+
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
   });
@@ -30,6 +25,7 @@ function initLang() {
     }
   });
 
+  // 让异步 include 的 header/footer 也受控
   document.addEventListener('partialsReady', () => applyLang(currentLang()));
 }
 

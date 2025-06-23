@@ -1,6 +1,6 @@
 async function includeFragments () {
-  //  if (window._fragmentsIncluded) return;
-  // window._fragmentsIncluded = true;
+if (window._fragmentsIncluded) return;
+window._fragmentsIncluded = true;
 
   const nodes = [...document.querySelectorAll('[data-include]')];
   await Promise.all(
