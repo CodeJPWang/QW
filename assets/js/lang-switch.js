@@ -16,12 +16,15 @@ function applyLang(lang) {
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
   });
-}
 
-
-  document.querySelectorAll('[data-switch-lang]').forEach(btn => {
-    btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
-  });
+  // ✅ 方法三：确保 Logo 显示
+  const logoSpan = document.querySelector('#header-placeholder header a.flex span');
+  if (logoSpan) {
+    logoSpan.style.opacity = '1';
+    logoSpan.style.visibility = 'visible';
+    logoSpan.style.color = 'white';
+    logoSpan.style.display = 'inline';
+  }
 }
 
 function initLang() {
@@ -43,4 +46,3 @@ if (document.readyState === 'loading') {
 } else {
   initLang();
 }
-
