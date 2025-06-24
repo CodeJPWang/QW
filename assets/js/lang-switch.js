@@ -5,34 +5,43 @@ function currentLang() {
 function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
+  // 控制显示隐藏
   document.querySelectorAll('[data-lang]').forEach(el => {
     el.style.display = el.dataset.lang === lang ? 'block' : 'none';
   });
 
+  // 激活按钮状态
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
   });
+
+  // 设置到 body 上
+  document.body.setAttribute('data-current-lang', lang);
 }
 
-function initLang() {
-  applyLang(currentLang());
-
-  document.addEventListener('click', e => {
-    const t = e.target.closest('[data-switch-lang]');
-    if (t) {
+function bindLangSwitchEvents() {
+  document.querySelectorAll('[data-switch-lang]').forEach(btn => {
+    btn.addEventListener('click', e => {
       e.preventDefault();
-      applyLang(t.dataset.switchLang);
-    }
+      const lang = btn.dataset.switchLang;
+      applyLang(lang);
+    });
   });
+}
 
-  // 确保当 header/footer 加载后也会应用语言
-  document.addEventListener('partialsReady', () => {
-    applyLang(currentLang());
-  });
+function initLangSwitcher() {
+  applyLang(currentLang());
+  bindLangSwitchEvents();
 }
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initLang);
+  document.addEventListener('DOMContentLoaded', initLangSwitcher);
 } else {
-  initLang();
+  initLangSwitcher();
 }
+
+// 如果 header/footer 是异步加载的，也能触发语言更新
+document.addEventListener('partialsReady', () => {
+  applyLang(currentLang());
+  bindLangSwitchEvents();
+});
