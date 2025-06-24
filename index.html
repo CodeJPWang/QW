@@ -6,13 +6,16 @@
   <title>QuantWings | Study-Abroad. Simplified.</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
   <style>
-    html:not([data-lang-set]) [data-lang="en"] {
+    [data-lang] {
+      display: none;
+    }
+    [data-lang="en"] {
       display: block;
     }
   </style>
 </head>
 
-<body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen">
+<body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen" data-current-lang="en">
   <!-- Header placeholder -->
   <div id="header-placeholder"></div>
 
@@ -108,18 +111,24 @@
         document.dispatchEvent(new Event('partialsReady'));
       });
   </script>
-  <script src="assets/js/lang-switch.js"></script>
-  <script src="assets/js/cursor-trail.js"></script>
   <script>
-    if (typeof initLang === 'function') initLang();
-
-    // Force header to be visible
     document.addEventListener('partialsReady', () => {
       const header = document.querySelector('#header-placeholder header');
       if (header) {
         header.classList.remove('hidden', 'opacity-0');
         header.classList.add('block', 'opacity-100');
       }
+    });
+
+    document.querySelectorAll('[data-switch-lang]').forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        const lang = btn.getAttribute('data-switch-lang');
+        document.querySelectorAll('[data-lang]').forEach(el => {
+          el.style.display = el.getAttribute('data-lang') === lang ? 'block' : 'none';
+        });
+        document.body.setAttribute('data-current-lang', lang);
+      });
     });
   </script>
 </body>
