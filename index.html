@@ -12,21 +12,13 @@
     [data-lang="en"] {
       display: block;
     }
-  /* 强制 header 里所有文字可见、正常显示 */
-  #header-placeholder header,
-  #header-placeholder header * {
-    opacity: 1 !important;
-    visibility: visible !important;
-    display: inline !important;
-    color: rgb(83, 4, 4) !important;
-  
-  }
+
   </style>
 </head>
 
 <body class="bg-slate-50 text-gray-800 flex flex-col min-h-screen" data-current-lang="en">
   <!-- Header placeholder -->
-  <div id="header-placeholder"></div>
+    <div data-include="partials/header.html"></div>
 
   <!-- HERO -->
   <section id="hero" class="relative flex flex-col items-center justify-center text-center py-32 bg-gradient-to-br from-blue-600 to-teal-500 text-white overflow-hidden">
@@ -95,21 +87,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-900 text-gray-200 py-8 text-center text-sm">
-    <p data-lang="en">© <span id="year">2025</span> QuantWings. All rights reserved.</p>
-    <p data-lang="zh">© <span id="year">2025</span> QuantWings 版权所有。</p>
-    <p class="opacity-80 mt-2">
-      📧 <a href="mailto:info@quantwings.co.uk" class="underline">info@quantwings.co.uk</a>
-    </p>
-    <div class="mt-4 font-semibold">
-      <a href="#" data-switch-lang="en" aria-label="Switch to English">EN</a>
-      <span>|</span>
-      <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
-    </div>
-    <script>
-      document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
-  </footer>
+  <div data-include="partials/footer.html"></div>
 
   <!-- Scripts -->
   <script>
@@ -140,5 +118,10 @@
       });
     });
   </script>
+  <!-- 脚本区 -->
+  <script src="autoload.js"></script>
+  <script src="cursor-trail.js"></script>
+  <script src="lang-switch.js"></script>
+
 </body>
 </html>
