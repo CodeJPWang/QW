@@ -13,7 +13,34 @@
     <a href="#" data-switch-lang="zh" aria-label="切换到中文">中文</a>
   </div>
 
+  <style>
+    [data-lang="zh"] {
+      display: none;
+    }
+  </style>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    function switchLanguage(lang) {
+      document.querySelectorAll('[data-lang]').forEach(el => {
+        el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+      });
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const lang = localStorage.getItem('preferredLanguage') || 'en';
+      switchLanguage(lang);
+
+      document.querySelectorAll('[data-switch-lang]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          e.preventDefault();
+          const selectedLang = btn.getAttribute('data-switch-lang');
+          switchLanguage(selectedLang);
+        });
+      });
+    });
   </script>
 </footer>
+

@@ -13,7 +13,7 @@
 
     <!-- 左侧 Logo + Brand -->
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/images/Wordpress.png" alt="QuantWings Logo" style="width: 120px; height: auto;">
+      <img src="assets/images/Wordpress.png" alt="QuantWings Logo" style="width: 100px; height: auto;">
       <span class="text-2xl font-bold opacity-100 text-black">QuantWings</span>
     </a>
 
@@ -49,3 +49,24 @@
 
   </div>
 </header>
+<script>
+  function switchLanguage(lang) {
+    document.querySelectorAll('[data-lang]').forEach(el => {
+      el.style.display = (el.getAttribute('data-lang') === lang) ? '' : 'none';
+    });
+    localStorage.setItem('preferredLanguage', lang);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const lang = localStorage.getItem('preferredLanguage') || 'en';
+    switchLanguage(lang);
+
+    document.querySelectorAll('[data-switch-lang]').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedLang = btn.getAttribute('data-switch-lang');
+        switchLanguage(selectedLang);
+      });
+    });
+  });
+</script>
