@@ -6,18 +6,8 @@ function applyLang(lang) {
   localStorage.setItem('lang', lang);
 
   document.querySelectorAll('[data-lang]').forEach(el => {
-    if (el.dataset.lang === lang) {
-      el.classList.remove('hidden');
-    } else {
-      el.classList.add('hidden');
-    }
+    el.style.display = el.dataset.lang === lang ? 'block' : 'none';
   });
-
-  document.querySelectorAll('[data-switch-lang]').forEach(btn => {
-    btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
-  });
-}
-
 
   document.querySelectorAll('[data-switch-lang]').forEach(btn => {
     btn.classList.toggle('font-bold', btn.dataset.switchLang === lang);
@@ -35,7 +25,10 @@ function initLang() {
     }
   });
 
-  document.addEventListener('partialsReady', () => applyLang(currentLang()));
+  // 确保当 header/footer 加载后也会应用语言
+  document.addEventListener('partialsReady', () => {
+    applyLang(currentLang());
+  });
 }
 
 if (document.readyState === 'loading') {
@@ -43,4 +36,3 @@ if (document.readyState === 'loading') {
 } else {
   initLang();
 }
-
